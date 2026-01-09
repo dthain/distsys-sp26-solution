@@ -1,0 +1,92 @@
+Grading Rubric for Assignment 2
+
+Basic Operation (40 points)
+---------------------------
+
+Test the basic operation of the system works by having two windows open.
+
+In the first window, ssh to `student10.cse.nd.edu` and run the server:
+
+```
+python SpreadSheetServer.py 0
+(port number should be printed out)
+```
+
+In the second window, ssh to `student11.cse.nd.edu` (note different machine) and run the client:
+
+```
+python TestBasics.py <host> <port>
+```
+
+This should result in the client performing basic operations
+and emitting some output indicating that it connected and worked.
+
+Deduct 5 points if the program does not implement the "use any port" feature,
+and you have to specify a specific port to the server.
+
+Server Code Details (20 points)
+-------------------------------
+
++10 points - Take a brief look at SpreadSheet.py - It should do very little except manipulate the hash table.
++10 points - Take a brief look at SpreadSheetServer.py - Exceptions from SpreadSheet.py should result in failure messages; exceptions from network operations should result in returning to the main loop.
+
+Client Code Details (20 points)
+-------------------------------
+
++ 10 points - Take a brief look at TestBasics.py to make sure that each kind of operation has been tested (insert, lookup, remove, size, query) for success, and also that two read operations (lookup, query) have been
+tested for the failure case.  (It doesn't matter whether those operations return a KeyError or a null value, as long as they have some way of indicating failure.)
+
++ 5 points - Take a brief look at TestPerf.py to make sure the measurement technique makes sense.  They should be using time.time_ns() or gettimeofday() or something similar to make a subsecond measurement of a large number of successful operations.
+
++ 5 points - Take a brief look at SpreadSheetClient.py to make sure they are sending a message with an "envelope": each message should be preceded by a message-length or terminated by a newline or other marker.  Each method should look like a proper function call, and not require the caller to make up the RPC messages by hand.
+
+Report (20 points)
+------------------
+
++ 10 points - Examples: Must contain JSON examples for a request, repsonse, and failure, for each of the insert, lookup, remove, size and query operations.
+
++ 5 points - Performance: Here is the observed performance on my solution, between student10 and student11:
+
+insert:  xput 2141.547347282847 ops/s, latency 0.0004669520854949951s
+lookup:  xput 5128.928041243669 ops/s, latency 0.00019497251510620117s
+query:   xput 158.56314249521435 ops/s, latency 0.006306635856628418s
+remove:  xput 5196.758765952174 ops/s, latency 0.0001924276351928711s
+
+Give credit if the observed performance of lookup and remove are approx 4000-6000 operations per second.  Lookup is likely about half the performance.
+
+If they are much slower, this is likely because of excessive output at the client or server.  If they are much faster... that's hard to explain.  That might occur if the client and server are running on the same machine, which isn't what the instructions called for.
+
+The performance of query should be substantially lower, but will depend on the number of items in the hash table and also the exact method used to represent the result.
+
++ 5 points Significance: A good discussion of the significance should observe that the time to insert/lookup/remove/query is much higher than the code of a trivial function call (or dictionary operation) b/c of the necessity of a network round trip.
+
+Finally, create a file called `GRADE` alongside the student's code that
+gives the overall grade breakdown, and specific comments and deductions
+in each section.  Here is an example:
+
+-------------------------------
+Example Grade File Template:
+------------------------------
+
+
+Assignment 2 - Remote Procedure Call
+
+Basic Operation (40 points)
+---------------------------
+-5 Basic configuration works fine, however, the server doesn't choose a port automatically when zero is given.
+
+Server Code Details (20 points)
+-------------------------------
+-5 Overall server structure is correct, however, you should catch exceptions when the client disconnects.
+
+Client Code Details (20 points)
+-------------------------------
+TestBasics.py tests all of the essential operations correctly.
+
+-5 TestPerf.py is doing the right work, but has a print statement in the inner loop, which throws off the performance.
+
+Report (20 points)
+------------------
+-5 Nice examples of the JSON messages, and your general discussion is correct.  However, note that your performance is even slower than expected, due to the extra output message.  Please remove those for the next assignment.
+
+Total: 80
