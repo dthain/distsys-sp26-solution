@@ -1,0 +1,18 @@
+Assignment 1 - Measurements
+
+Measurement Technique (20 points)
+---------------------------------
+Measurement method looks good
+
+Results (50 points)
+-------------------
+Results look good
+
+Commentary (30 points)
+----------------------
+-5 open in \tmp is much faster than open the home directory, as \tmp is usually stored in memory of the local machine and your home directory is on a shared filesystem
+Thorough and excellent discussion on the performance of tests. Good job!
+
+
+
+Total: 95

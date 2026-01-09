@@ -1,0 +1,209 @@
+// Sebastian Gutierrez
+// A1: Measurement Basics
+
+# Results Summary (Test Outputs) 
+
+Test 1
+elapsed time: 5.059279069886543; no. iterations: 85000000; avg. time per opn: 5.9520930233959326e-08
+elapsed time: 5.1715732149314135; no. iterations: 85000000; avg. time per opn: 6.084203782272252e-08
+elapsed time: 5.082076368969865; no. iterations: 85000000; avg. time per opn: 5.978913375258664e-08
+elapsed time: 5.39352725003846; no. iterations: 85000000; avg. time per opn: 6.345326176515835e-08
+elapsed time: 5.150211206055246; no. iterations: 85000000; avg. time per opn: 6.059072007123819e-08
+elapsed time: 5.483746015932411; no. iterations: 85000000; avg. time per opn: 6.451465901096954e-08
+elapsed time: 4.974191154935397; no. iterations: 85000000; avg. time per opn: 5.851989594041644e-08
+elapsed time: 5.040667223976925; no. iterations: 85000000; avg. time per opn: 5.9301967340905e-08
+elapsed time: 4.970299693988636; no. iterations: 85000000; avg. time per opn: 5.847411404692513e-08
+elapsed time: 6.236864830018021; no. iterations: 85000000; avg. time per opn: 7.337488035315319e-08
+
+Test 2
+elapsed time: 4.3788983430713415; no. iterations: 1500; avg. time per opn: 0.002919265562047561
+elapsed time: 4.587900431826711; no. iterations: 1500; avg. time per opn: 0.003058600287884474
+elapsed time: 4.6452203679364175; no. iterations: 1500; avg. time per opn: 0.003096813578624278
+elapsed time: 4.07819262589328; no. iterations: 1500; avg. time per opn: 0.0027187950839288534
+elapsed time: 4.346830483991653; no. iterations: 1500; avg. time per opn: 0.0028978869893277683
+elapsed time: 4.392866085050628; no. iterations: 1500; avg. time per opn: 0.0029285773900337517
+elapsed time: 4.2147800761740655; no. iterations: 1500; avg. time per opn: 0.002809853384116044
+elapsed time: 4.100605692947283; no. iterations: 1500; avg. time per opn: 0.002733737128631522
+elapsed time: 3.9156178957782686; no. iterations: 1500; avg. time per opn: 0.0026104119305188456
+elapsed time: 4.3660086242016405; no. iterations: 1500; avg. time per opn: 0.002910672416134427
+
+Test 3
+elapsed time: 4.97328268410638; no. iterations: 275000; avg. time per opn: 1.808466430584138e-05
+elapsed time: 5.062009267974645; no. iterations: 275000; avg. time per opn: 1.840730642899871e-05
+elapsed time: 4.9994566820096225; no. iterations: 275000; avg. time per opn: 1.817984248003499e-05
+elapsed time: 5.0490902960300446; no. iterations: 275000; avg. time per opn: 1.8360328349200162e-05
+elapsed time: 5.019505928969011; no. iterations: 275000; avg. time per opn: 1.8252748832614583e-05
+elapsed time: 5.131133725866675; no. iterations: 275000; avg. time per opn: 1.8658668094060638e-05
+elapsed time: 5.059863867936656; no. iterations: 275000; avg. time per opn: 1.839950497431511e-05
+elapsed time: 5.020057071000338; no. iterations: 275000; avg. time per opn: 1.825475298545577e-05
+elapsed time: 5.021715322043747; no. iterations: 275000; avg. time per opn: 1.826078298924999e-05
+elapsed time: 5.259680713992566; no. iterations: 275000; avg. time per opn: 1.9126111687245694e-05
+
+Test 4
+elapsed time: 4.927817818010226; no. iterations: 32500000; avg. time per opn: 1.5162516363108387e-07
+elapsed time: 5.155891605070792; no. iterations: 32500000; avg. time per opn: 1.5864281861756283e-07
+elapsed time: 5.2671533019747585; no. iterations: 32500000; avg. time per opn: 1.620662554453772e-07
+elapsed time: 4.943966037011705; no. iterations: 32500000; avg. time per opn: 1.5212203190805248e-07
+elapsed time: 4.876985879032873; no. iterations: 32500000; avg. time per opn: 1.5006110397024224e-07
+elapsed time: 4.934850758989342; no. iterations: 32500000; avg. time per opn: 1.5184156181505667e-07
+elapsed time: 4.993046732968651; no. iterations: 32500000; avg. time per opn: 1.5363220716826618e-07
+elapsed time: 4.858319601975381; no. iterations: 32500000; avg. time per opn: 1.494867569838579e-07
+elapsed time: 4.948939671041444; no. iterations: 32500000; avg. time per opn: 1.522750668012752e-07
+elapsed time: 4.860268010990694; no. iterations: 32500000; avg. time per opn: 1.495467080304829e-07
+
+Test 5
+elapsed time: 5.075738960993476; no. iterations: 51250000; avg. time per opn: 9.903880899499466e-08
+elapsed time: 5.038851766963489; no. iterations: 51250000; avg. time per opn: 9.831905886758028e-08
+elapsed time: 5.0452253971016034; no. iterations: 51250000; avg. time per opn: 9.844342238247031e-08
+elapsed time: 5.068906806060113; no. iterations: 51250000; avg. time per opn: 9.890549865483147e-08
+elapsed time: 5.040854841005057; no. iterations: 51250000; avg. time per opn: 9.835814323912307e-08
+elapsed time: 5.04225378704723; no. iterations: 51250000; avg. time per opn: 9.838543974726302e-08
+elapsed time: 5.03962027200032; no. iterations: 51250000; avg. time per opn: 9.833405408781112e-08
+elapsed time: 5.067142235930078; no. iterations: 51250000; avg. time per opn: 9.887106801814786e-08
+elapsed time: 5.04713763599284; no. iterations: 51250000; avg. time per opn: 9.84807343608359e-08
+elapsed time: 5.040594103978947; no. iterations: 51250000; avg. time per opn: 9.835305568739409e-08
+
+Test 6
+elapsed time: 5.112745205988176; no. iterations: 95; avg. time per opn: 0.05381837058934922
+elapsed time: 4.123657370917499; no. iterations: 95; avg. time per opn: 0.04340691969386841
+elapsed time: 4.133115818956867; no. iterations: 95; avg. time per opn: 0.04350648230480912
+elapsed time: 4.1347609960939735; no. iterations: 95; avg. time per opn: 0.04352379995888393
+elapsed time: 5.1565344569971785; no. iterations: 95; avg. time per opn: 0.05427931007365451
+elapsed time: 5.162260407931171; no. iterations: 95; avg. time per opn: 0.05433958324138075
+elapsed time: 5.157552512944676; no. iterations: 95; avg. time per opn: 0.05429002645204922
+elapsed time: 5.159641372039914; no. iterations: 95; avg. time per opn: 0.05431201444252541
+elapsed time: 5.153395992005244; no. iterations: 95; avg. time per opn: 0.0542462736000552
+elapsed time: 5.147950271028094; no. iterations: 95; avg. time per opn: 0.054188950221348356
+
+Test 7
+elapsed time: 5.043978639063425; no. iterations: 50; avg. time per opn: 0.10087957278126851
+elapsed time: 4.96921144600492; no. iterations: 50; avg. time per opn: 0.09938422892009839
+elapsed time: 4.994991494924761; no. iterations: 50; avg. time per opn: 0.09989982989849523
+elapsed time: 5.127358410973102; no. iterations: 50; avg. time per opn: 0.10254716821946204
+elapsed time: 5.025029344018549; no. iterations: 50; avg. time per opn: 0.10050058688037097
+elapsed time: 5.076580233988352; no. iterations: 50; avg. time per opn: 0.10153160467976705
+elapsed time: 5.0174122649477795; no. iterations: 50; avg. time per opn: 0.10034824529895559
+elapsed time: 5.058569964021444; no. iterations: 50; avg. time per opn: 0.10117139928042888
+elapsed time: 5.019090396002866; no. iterations: 50; avg. time per opn: 0.10038180792005733
+elapsed time: 5.02540756308008; no. iterations: 50; avg. time per opn: 0.10050815126160159
+
+Test 8
+elapsed time: 5.039252672926523; no. iterations: 4025; avg. time per opn: 0.0012519882417208752
+elapsed time: 5.082255096989684; no. iterations: 4025; avg. time per opn: 0.001262672073786257
+elapsed time: 4.983452796004713; no. iterations: 4025; avg. time per opn: 0.0012381249182620404
+elapsed time: 5.027787393075414; no. iterations: 4025; avg. time per opn: 0.0012491397249876806
+elapsed time: 5.0479874450247735; no. iterations: 4025; avg. time per opn: 0.0012541583714347263
+elapsed time: 5.108451846987009; no. iterations: 4025; avg. time per opn: 0.0012691805831023626
+elapsed time: 5.050703463959508; no. iterations: 4025; avg. time per opn: 0.0012548331587477037
+elapsed time: 5.139645283925347; no. iterations: 4025; avg. time per opn: 0.0012769305053230676
+elapsed time: 5.071258404059336; no. iterations: 4025; avg. time per opn: 0.00125993997616381
+elapsed time: 5.0478752489434555; no. iterations: 4025; avg. time per opn: 0.0012541304966319144
+
+Test 9
+elapsed time: 5.301637509022839; no. iterations: 9250; avg. time per opn: 0.0005731500009754421
+elapsed time: 5.385080453939736; no. iterations: 9250; avg. time per opn: 0.0005821708598853769
+elapsed time: 5.424951137974858; no. iterations: 9250; avg. time per opn: 0.0005864812041053901
+elapsed time: 5.546097960905172; no. iterations: 9250; avg. time per opn: 0.0005995781579356943
+elapsed time: 5.525579337961972; no. iterations: 9250; avg. time per opn: 0.0005973599284283213
+elapsed time: 5.524353084038012; no. iterations: 9250; avg. time per opn: 0.0005972273604365418
+elapsed time: 5.385669906041585; no. iterations: 9250; avg. time per opn: 0.000582234584436928
+elapsed time: 5.272000329918228; no. iterations: 9250; avg. time per opn: 0.0005699459816127814
+elapsed time: 5.483902625972405; no. iterations: 9250; avg. time per opn: 0.0005928543379429628
+elapsed time: 5.37642455205787; no. iterations: 9250; avg. time per opn: 0.0005812350867089588
+
+Test 10
+elapsed time: 5.098576558986679; no. iterations: 1550; avg. time per opn: 0.0032894042316043088
+elapsed time: 5.032870586030185; no. iterations: 1550; avg. time per opn: 0.003247013281309797
+elapsed time: 5.08235949696973; no. iterations: 1550; avg. time per opn: 0.0032789416109482127
+elapsed time: 5.122659565880895; no. iterations: 1550; avg. time per opn: 0.0033049416554070286
+elapsed time: 6.828433504095301; no. iterations: 1550; avg. time per opn: 0.004405440970384065
+elapsed time: 5.505137186963111; no. iterations: 1550; avg. time per opn: 0.0035517014109439425
+elapsed time: 6.185938274953514; no. iterations: 1550; avg. time per opn: 0.003990927919324848
+elapsed time: 5.666480062063783; no. iterations: 1550; avg. time per opn: 0.003655793588428247
+elapsed time: 5.616092320997268; no. iterations: 1550; avg. time per opn: 0.0036232853683853344
+elapsed time: 5.847009627148509; no. iterations: 1550; avg. time per opn: 0.003772264275579683
+
+
+# Measurement Table (in seconds)
+> key: _smallest_ **largest**
+
+| test 1                    | test 4                    | test 5                    |
+|---------------------------|---------------------------|---------------------------|
+| 5.9520930233959326e-08    | 1.5162516363108387e-07    | **9.903880899499466e-08** |
+| 6.084203782272252e-08     | 1.5864281861756283e-07    | _9.831905886758028e-08_   |
+| 5.978913375258664e-08     | **1.620662554453772e-07** | 9.844342238247031e-08     |
+| 6.345326176515835e-08     | 1.5212203190805248e-07    | 9.890549865483147e-08     |
+| 6.059072007123819e-08     | 1.5006110397024224e-07    | 9.835814323912307e-08     |
+| 6.451465901096954e-08     | 1.5184156181505667e-07    | 9.838543974726302e-08     |
+| 5.851989594041644e-08     | 1.5363220716826618e-07    | 9.833405408781112e-08     |
+| 5.9301967340905e-08       | _1.494867569838579e-07_   | 9.887106801814786e-08     |
+| _5.847411404692513e-08_   | 1.522750668012752e-07     | 9.84807343608359e-08      |
+| **7.337488035315319e-08** | 1.495467080304829e-07     | 9.835305568739409e-08     |
+
+test 2
+|------------------------
+0.0026104119305188456
+0.0027187950839288534
+0.002733737128631522
+0.002809853384116044
+0.0028978869893277683
+0.002910672416134427
+0.002919265562047561
+0.0029285773900337517
+0.003058600287884474
+0.003096813578624278
+
+| test 3                     |
+|----------------------------|
+| _1.808466430584138e-05_    |
+| 1.840730642899871e-05      |
+| 1.817984248003499e-05      |
+| 1.8360328349200162e-05     |
+| 1.8252748832614583e-05     |
+| 1.8658668094060638e-05     |
+| 1.839950497431511e-05      |
+| 1.825475298545577e-05      |
+| 1.826078298924999e-05      |
+| **1.9126111687245694e-05** |
+
+
+
+
+
+| test 6                  | test 7                  | test 8                    | test 9                    |
+|-------------------------|-------------------------|---------------------------|---------------------------|
+| 0.05381837058934922     | 0.10087957278126851     | 0.0012519882417208752     | 0.0005731500009754421     |
+| _0.04340691969386841_   | _0.09938422892009839_   | 0.001262672073786257      | 0.0005821708598853769     |
+| 0.04350648230480912     | 0.09989982989849523     | _0.0012381249182620404_   | 0.0005864812041053901     |
+| 0.04352379995888393     | **0.10254716821946204** | 0.0012491397249876806     | **0.0005995781579356943** |
+| 0.05427931007365451     | 0.10050058688037097     | 0.0012541583714347263     | 0.0005973599284283213     |
+| **0.05433958324138075** | 0.10153160467976705     | 0.0012691805831023626     | 0.0005972273604365418     |
+| 0.05429002645204922     | 0.10034824529895559     | 0.0012548331587477037     | 0.000582234584436928      |
+| 0.05431201444252541     | 0.10117139928042888     | **0.0012769305053230676** | _0.0005699459816127814_   |
+| 0.0542462736000552      | 0.10038180792005733     | 0.00125993997616381       | 0.0005928543379429628     |
+| 0.054188950221348356    | 0.10050815126160159     | 0.0012541304966319144     | 0.0005812350867089588     |
+
+| test 10                  |
+|--------------------------|
+| 0.0032894042316043088    |
+| _0.003247013281309797_   |
+| 0.0032789416109482127    |
+| 0.0033049416554070286    |
+| **0.004405440970384065** |
+| 0.0035517014109439425    |
+| 0.003990927919324848     |
+| 0.003655793588428247     |
+| 0.0036232853683853344    |
+| 0.003772264275579683     |
+
+# Test Range Table in seconds (time max - time min)
+
+| test 1      | test 2  | test 3      | test 4      | test 5      | test 6  | test 7  | test 8      | test 9      | test 10 |
+|-------------|---------|-------------|-------------|-------------|---------|---------|-------------|-------------|---------|
+| 1.49008e-08 | 0.00049 | 1.04145e-06 | 1.25795e-08 | 7.19750e-10 | 0.01093 | 0.00316 | 3.88056e-05 | 2.96322e-05 | 0.00116 |
+
+> Test 2 had the broadest range of performance by far (relative to the size of the operation), and this understandable, given that the location of home directories on a system like the student machines is on a different machine, and there is great room for variability when you access a location in a system that is distributed. 
+
+# Performance Difference Explanations/Observations
+
+The timing results of tests such as 1 and 5 are as expected — small and rather consistent, given that  as basic/elementary procedures in the python language, they are not only optimized and extremely efficient, but do not require any operations beyond accessing the  memory (where the function and dictionary are defined) that the python program has easy access to. When comparing Tests such as 2, and 3, we see that there is certainly a huge difference in orders of magnitude when compared to test 1 and 5 because of the fact that creating and deleting files requires more intensive resources and system calls from the OS. Even between test 3 and 3 however, there is a notable difference in the orders of magnitude of average operation times, and it is likely due to the type of memory from which files are being created/destroyed in.  /tmp is usually memory that is temporary, and as a result may be higher up in the memory hierarchy relative to a users home directory, which may be located on disk or somewhere persistent.  As a result, the time for performing the same operation in $HOME is larger than /tmp. As for test 4, we see it is a relatively fast operation.  Its fast performance and rather consistent results are attributable to the fact that accessing the wall clock time is a realively simple system call that attempts to access the time of the system. Tests 6 and 7 involve networking, and are of the operations that take the longest to complete on average. For test 6, it is necessary to define a socket and make a connection, which is a process that involves comunication between a client and a server (in order to establish a connection), and these operations take reasonably more magnitudes of time to complete. Test 7 similarly establishes a connection (HTTP), but in the process of reading the HTML and closing the connection, must first make a request for the content.  Test 6 and test 7 had the highest range/variability in their results, and this is not necessarily surprising, given that the timing of the operation is partially dependent on the nature and delivery of the server's response, as well as miscellaneous variability that could occur during other steps of establishing the connections.  Test 8 had a relatively large average operation time, and this is to be understood, given that operations that involve file I/O generally take some time, especially when the files are large.  Lastly tests 9 and 10 involved the similar operation done two different ways: one with with the program `ls` as a sub process and the other using system calls. To my surprise, running `ls -l` was slower than iterating over directories, but there could be a few reasons for this.  After further research, the nature of `ls` and calling it as a subprocess introduces a bit of overhead, given that `ls` needs to format and perhaps sorting and needing to read the entire directory contents into memory, but also that creating a process and allocating memory takes time.  calling `stat()` on directory entries is much faster because it involves only getting the files' metadata without needing to sort and potentially resolve other information that `ls -l` returns as output.

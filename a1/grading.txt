@@ -1,0 +1,63 @@
+Measurement Technique (20 points)
+
+Take a brief look at Test1.py to make sure the measurement technique
+makes sense.  They should be using time.time_ns() or gettimeofday() or
+something similar to make a subsecond measurement of a large number
+of operations.  Award only 10 points if they are using whole-second
+resolution, since that will result in serious rounding errors.
+
+Results (50 points)
+
+Award five points for each of these measurements.  The exact measurements
+may vary depending on conditions, so count it as correct if they are in the
+right order to magnitude, and the noted items are slower than their
+faster counterparts.
+
+Test1 - Function: 0.001 ms
+Test2 - Create/Delete in Home: 5.000 ms
+Test3 - Create/Delete in Temp: 0.500 ms (should be much faster than home)
+Test4 - Get Time: 0.003 ms
+Test5 -  Dict Insert: 0.002 ms
+Test6 - TCP Connect: ~10ms (may be much longer)
+Test7 - HTTP Fetch: ~25ms (should be much longer than plain TCP)
+Test8 - JSON Parse: ~5ms
+Test9 - Scandir: 1ms
+Test10 - ls-l : 5ms (should be slower than plain scandir)
+
+Observations (30 points)
+
++5 Fastest - Should be a trivial function call or possibly the dictionary insert. 
++5 Slowest - Should be the HTTP fetch because this involves multiple trips back and forth to the internet service in order to transfer data.
++5 Most Variable - Is most likely to be the HTTP fetch for the same reason.
+
+Explaining the underlying reasons:
+
++5   The operations internal to the process (function call, dictionary insert) are naturally far faster (microseconds) than the operations external to the process.
+
++5   Open in /tmp is much faster than open the home directory.  This is because the home directory is on a filesystem shared across multiple machines, while /tmp is typically stored in memory on a single machine.
+
++5   Scanning the home directory via system calls is faster than invoking "ls -l" because the latter creates a new process and invokes an external program before accomplishing the same thing.
+
+-------------------------------
+
+Example Grade File Template:
+
+Assignment 1 - Measurements
+
+Measurement Technique (20 points)
+------------------------------------------------
+Measurement technique is correctly done and easy to read.
+
+Results (50 points)
+-------------------------
+-5 Test8.py is opening the JSON file but not actually parsing it, so it's much faster than expected.
+-5 Test9.py is slower than expected, because you included the detection of the home directory (os.path.expanduser) inside the measurement loop.
+
+Commentary (30 points)
+--------------------------------
+Your overall description of the results is good, in particular pointing out
+that the internal operations are faster than the external ones.
+
+-5 One item you missed: "ls -l" should be slower than scandir() because it involves creating an external process.
+
+Total: 85
