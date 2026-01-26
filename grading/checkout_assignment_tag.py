@@ -15,17 +15,36 @@ resolved = []
 for line in repos_file:
     repo_url = line.strip()
     repo_name = repo_url.split("/")[-1].replace(".git", "")
-    
-    p = subprocess.run(["git", "fetch", 'origin', f'a{assignment_number}'], cwd=repo_name)
+
+    tag_name = f'a{assignment_number}'
+
+    # skip if already done
+    p = subprocess.run(["git", "tag", '-l'], cwd=repo_name, capture_output=True)
+    current_tag = p.stdout.decode('utf-8').strip()
+
+    if current_tag.lower() == tag_name.lower():
+        print(f"{repo_name} already on correct tag {current_tag}")
+        resolved.append(repo_name)
+        continue
+
+    p = subprocess.run(["git", "fetch", 'origin', tag_name], cwd=repo_name)
 
     if p.returncode != 0:
         p = subprocess.run(["git", "fetch", 'origin', f'A{assignment_number}'], cwd=repo_name)
-    
-    if p.returncode != 0:
-        print(f"Error fetching assignment {assignment_number} for {repo_name}")
-        non_conformers.append(repo_name)
 
-for deviant in non_conformers:
+        if p.returncode != 0:
+            print(f"Error fetching assignment {assignment_number} for {repo_name}")
+            non_conformers.append(repo_name)
+            continue
+
+        tag_name = f'A{assignment_number}'
+
+    p = subprocess.run(["git", "checkout", tag_name], cwd=repo_name)
+
+    resolved.append(repo_name)
+
+
+for deviant in non_conformers.copy():
     print(f"Attempting to solve tag name for {deviant}...")
 
     p = subprocess.run(["git", "fetch", "--all"], cwd=deviant)
@@ -77,10 +96,37 @@ for deviant in non_conformers:
         continue
     
     resolved.append(deviant)
-
-remaining = set(non_conformers) - set(resolved)
+    non_conformers.remove(deviant)
 
 print("Could not solve the following repositories:")
 
-for r in remaining:
+for r in non_conformers:
     print(r)
+
+
+print("\n\nChecking for late submissions. The latest 5 commits are as follows:")
+
+last_commits = {}
+
+for repo_name in resolved:
+    # should not fail
+    p = subprocess.run(["git", "log", "-1"], cwd=repo_name, capture_output=True)
+
+    date = [l for l in p.stdout.decode('utf-8').split('\n') if 'Date:' in l][0].split('Date:')[1].strip()
+
+    import datetime
+    from dateutil import parser
+
+    commit_date = parser.parse(date)
+    last_commits[repo_name] = commit_date
+
+sorted_commits = sorted(last_commits.items(), key=lambda x: x[1], reverse=True)
+
+for repo_name, commit_date in sorted_commits[:5]:
+    print(f"{repo_name}: {commit_date}")
+
+
+
+    
+
+
