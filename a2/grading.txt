@@ -1,0 +1,52 @@
+Measurement Technique (20 Points)
++10 REPORT shows results for TCP and UDP tests.
++10 The test results show at least method, buffer size, and elapsed time.
+
+Code Function and Results (50 Points)
++25 The code implements complete TCP (13) and UDP (13) transactions, where
+    the receiver does in fact read all of the data being sent. 
++15 Various buffer sizes are tested within the given range.
++10 The programs are invoked with the specified arguments. 
+
+Commentary (30 Points)
++15 The student observes the general throughput grow as buffer size increases
++10 The student reflects on the difference between the UDP and TCP performance 
+    and postulates the reason. (correct or not)
++5  The observations are at least marginally correct or insightful, and the data
+    which they were made upon was not flawed by the program or measurement. 
+
+
+
+(Colin) I petition a wide range of acceptable solutions. A student's implementation 
+and outside factors may influence their results. 
+
+I believe an acceptable solution should meet these general requirements:
+    - There is TCP and UDP data being sent with a nontrivial range of buffer sizes.
+    - The programs are not stuck blocking. eg. The length of the message is communicated. 
+    - The student records the results and attempts to draw a conclusion about them, correct or not. 
+
+
+Example Grade File Template:
+
+Assignment 2 - Networking
+
+Measurement Technique (20 points)
+------------------------------------------------
++20 TCP and UDP results are shown with required fields. 
+
+Code Function and Results (50 points)
+-------------------------
+-8 Only half of the specified range of buffer sizes was used in the tests.
+-10 The UDP server does not ack the recieved data, therefore the client side measurement completes early.
+-10 The server arguments include a hostname which is not necessary.
+
+Commentary (30 points)
+--------------------------------
++30 Observations were made about the results, though incorrect. 
+
+While your results show UDP to be highly performant, the reason was a flaw in the measurement. Generally we 
+should observe UDP to struggle at small buffer sizes with TCP being less affected since the OS does not have 
+mechanisms to cache and combine UDP packets. They are genuinely being sent one at a time. Depending on your 
+implementation for TCP it may have allowed the OS to fill a buffer with multiple packets and send them at once. 
+
+Total: 85
