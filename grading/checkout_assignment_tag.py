@@ -41,6 +41,11 @@ for line in repos_file:
 
     p = subprocess.run(["git", "checkout", tag_name], cwd=repo_name)
 
+    if p.returncode != 0:
+        print(f"Error checking out tag {tag_name} for {repo_name}")
+        non_conformers.append(repo_name)
+        continue
+
     resolved.append(repo_name)
 
 
@@ -114,7 +119,6 @@ for repo_name in resolved:
 
     date = [l for l in p.stdout.decode('utf-8').split('\n') if 'Date:' in l][0].split('Date:')[1].strip()
 
-    import datetime
     from dateutil import parser
 
     commit_date = parser.parse(date)
