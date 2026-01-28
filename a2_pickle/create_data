@@ -1,0 +1,25 @@
+#!/bin/bash
+
+data_name_pfx="test_data_"
+
+if [ "$1" == "make" ]; then
+    if [ ! "$2" ]; then
+        echo "Usage create_data make (int)count. (int)bytes"
+        exit 1
+    fi
+    if [ ! "$3" ]; then
+        echo "Usage create_data make (int)count. (int)bytes"
+        exit 1
+    fi
+
+    echo "Creating $2 files of $3 bytes..."
+    for i in $(seq 1 $2); do
+        dd if=/dev/urandom of="${data_name_pfx}${i}" bs=$3 count=1 &> /dev/null
+    done
+    echo "done"
+fi
+
+if [ "$1" == "clean" ]; then
+    rm ./${data_name_pfx}*
+    echo "done"
+fi
