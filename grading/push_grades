@@ -1,4 +1,4 @@
 #!/bin/bash
 
-ls -d *sp26 | while read p; do cd $p; git pull; git add *GRADING; git commit -m "A1 Grading"; git push; cd ..; done;
+ls -d *sp26 *distsys *distributed | while read p; do cd $p; git pull; git add *GRADING; git commit -m "A1 Grading"; git push; cd ..; done;
 
