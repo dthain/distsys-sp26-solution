@@ -58,10 +58,13 @@ lookup:  xput 5128.928041243669 ops/s, latency 0.00019497251510620117s
 query:   xput 158.56314249521435 ops/s, latency 0.006306635856628418s
 remove:  xput 5196.758765952174 ops/s, latency 0.0001924276351928711s
 
-Throughput will likely vary quite a bit with different implementations and file sizes being transmitted. Insert and lookup
-measurements may include disk I/O. I think any reasonable throughput is acceptable. 
+Throughput will likely vary quite a bit with different implementations and file sizes being transmitted. Insert measurements may include disk I/O. 
+I think any reasonable throughput is acceptable.
 
-Exceptionally slow results, or cases where there is a large discrepancy between insert and lookup should be scrutinized. 
+Exceptionally slow results, or cases where there insert is faster than lookup should be scrutinized. Do not penalize if the student 
+implemented the server to write the files to disk (which is in the next assignment). This would likely result in the throughput being similar
+for the two operations.
+ 
 Exceptionally fast results may have been run with two local processes which is not what the assignment specified.
 
 Query, size, and remove should be quite uniform and a good deal faster than insert and lookup. 

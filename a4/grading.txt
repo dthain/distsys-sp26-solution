@@ -1,6 +1,6 @@
 Grading Rubric for Assignment 4
 
-Basic Operation (40 points)
+Basic Operation (50 points)
 ---------------------------
 
 Test the basic operation of the system works by having two windows open.
@@ -21,29 +21,49 @@ python TestBasics.py <host> <port>
 This should result in the client performing basic operations
 and emitting some output indicating that it connected and worked.
 
+**This is the key test of the code implementation quality.**
+Control-C the server and restart it.  You should be able
+to run the client a second time without trouble.  And, you should
+be able to see some data in sheet.ckpt and sheet.log.
+(OK if these files have slightly different names.)
+If this sequence of events does not work, deduct 10-40 points
+depending upon how much is working.
+
 Deduct 5 points if the program does not implement the "use any port" feature,
 and you have to specify a specific port to the server.
 
 Server Code Details (20 points)
 -------------------------------
 
-+10 points - Take a brief look at SpreadSheet.py - It should do very little except manipulate the hash table.
-+10 points - Take a brief look at SpreadSheetServer.py - Exceptions from SpreadSheet.py should result in failure messages; exceptions from network operations should result in returning to the main loop.
+Take a brief look at HashTable.py and look for the following:
++5 - Modifications should write to the transaction log.
++5 - and updates should use f.flush() and os.fsync() to force it to disk.
++5 - The checkpoint file should be periodically written and use rename() to ensure an atomic update.
++5 - The checkpoint and transaction log should be read from disk at startup.
 
-Client Code Details (20 points)
+Additional code related to the checkpoint and transaction log rebuild + file verification is permitted. make
+sure this code exists somewhere and appears functional. e.g. no obvious potential for inconsistency without a failure occuring. 
+
+Make sure the server is doing some sanitation on the filename keys provided by insert(). We don't want the server allowing someone to do:
+insert('~/.bashrc', '#!/bin/bash\n curl -o ... ; ...') 
+
+Client Code Details (10 points)
 -------------------------------
 
-+ 10 points - Take a brief look at TestBasics.py to make sure that each kind of operation has been tested (insert, lookup, remove, size, query) for success, and also that two read operations (lookup, query) have been
++ 5 points - Take a brief look at TestBasics.py to make sure that each kind of operation has been tested (insert, lookup, remove, size, query) for success, and also that two read operations (lookup, query) have been
 tested for the failure case.  (It doesn't matter whether those operations return a KeyError or a null value, as long as they have some way of indicating failure.)
+
+The test should verify that v == lookup(x) after insert(x, v). It is optional at this point to verify the actual file on disk is the same since they would have to make a subprocess to remove the file in between, or modify the api to write explicit different file names and we want to maintain consistency with the api.  
 
 + 5 points - Take a brief look at TestPerf.py to make sure the measurement technique makes sense.  They should be using time.time_ns() or gettimeofday() or something similar to make a subsecond measurement of a large number of successful operations.
 
-+ 5 points - Take a brief look at SpreadSheetClient.py to make sure they are sending a message with an "envelope": each message should be preceded by a message-length or terminated by a newline or other marker.  Each method should look like a proper function call, and not require the caller to make up the RPC messages by hand.
+Comparing HashTableClient.py from the previous assignment there may be little change except for a modification to the messaging format to include metadata, as well
+as general restructuring. 
 
 Report (20 points)
 ------------------
 
-+ 10 points - Examples: Must contain JSON examples for a request, repsonse, and failure, for each of the insert, lookup, remove, size and query operations.
++ 10 points - Examples: Must contain message format examples for a request, repsonse, and failure, for each of the insert, lookup, remove, size and query operations. Instead of file bytes the value should be some kind of serializable message containing additional info.
 
 + 5 points - Performance: Here is the observed performance on my solution, between student10 and student11:
 
@@ -52,11 +72,14 @@ lookup:  xput 5128.928041243669 ops/s, latency 0.00019497251510620117s
 query:   xput 158.56314249521435 ops/s, latency 0.006306635856628418s
 remove:  xput 5196.758765952174 ops/s, latency 0.0001924276351928711s
 
-Give credit if the observed performance of lookup and remove are approx 4000-6000 operations per second.  Lookup is likely about half the performance.
+Throughput will likely vary quite a bit with different implementations and file sizes being transmitted. Insert and lookup
+measurements may include disk I/O. I think any reasonable throughput is acceptable. 
 
-If they are much slower, this is likely because of excessive output at the client or server.  If they are much faster... that's hard to explain.  That might occur if the client and server are running on the same machine, which isn't what the instructions called for.
+Exceptionally slow results, or cases where there is a large discrepancy between insert and lookup should be scrutinized.
 
-The performance of query should be substantially lower, but will depend on the number of items in the hash table and also the exact method used to represent the result.
+Exceptionally fast results may have been run with two local processes which is not what the assignment specified.
+
+Query, size, and remove should be quite uniform and a good deal faster than insert and lookup. 
 
 + 5 points Significance: A good discussion of the significance should observe that the time to insert/lookup/remove/query is much higher than the code of a trivial function call (or dictionary operation) b/c of the necessity of a network round trip.
 
@@ -69,7 +92,7 @@ Example Grade File Template:
 ------------------------------
 
 
-Assignment 2 - Remote Procedure Call
+Assignment 4 - Persistence
 
 Basic Operation (40 points)
 ---------------------------
