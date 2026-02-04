@@ -1,4 +1,4 @@
-Grading Rubric for Assignment 4
+Grading Rubric for Assignment 3
 
 Basic Operation (40 points)
 ---------------------------
@@ -8,7 +8,7 @@ Test the basic operation of the system works by having two windows open.
 In the first window, ssh to `student10.cse.nd.edu` and run the server:
 
 ```
-python SpreadSheetServer.py 0
+python HashTableServer.py 0
 (port number should be printed out)
 ```
 
@@ -27,8 +27,8 @@ and you have to specify a specific port to the server.
 Server Code Details (20 points)
 -------------------------------
 
-+10 points - Take a brief look at SpreadSheet.py - It should do very little except manipulate the hash table.
-+10 points - Take a brief look at SpreadSheetServer.py - Exceptions from SpreadSheet.py should result in failure messages; exceptions from network operations should result in returning to the main loop.
++10 points - Take a brief look at HashTable.py - It should do very little except manipulate the hash table.
++10 points - Take a brief look at HashTableServer.py - Exceptions from HashTable.py should result in failure messages; exceptions from network operations should result in returning to the main loop.
 
 Client Code Details (20 points)
 -------------------------------
@@ -38,12 +38,18 @@ tested for the failure case.  (It doesn't matter whether those operations return
 
 + 5 points - Take a brief look at TestPerf.py to make sure the measurement technique makes sense.  They should be using time.time_ns() or gettimeofday() or something similar to make a subsecond measurement of a large number of successful operations.
 
-+ 5 points - Take a brief look at SpreadSheetClient.py to make sure they are sending a message with an "envelope": each message should be preceded by a message-length or terminated by a newline or other marker.  Each method should look like a proper function call, and not require the caller to make up the RPC messages by hand.
++ 5 points - Take a brief look at HashTableClient.py to make sure they are sending a message with an "envelope": each message should be preceded by a message-length or terminated by a newline or other marker.  Each method should look like a proper function call, and not require the caller to make up the RPC messages by hand.
+
+The additional file operations can be implemented in different ways for insert and lookup. The only imperative is that insert has two arguments, key and value, and lookup has one argument and returns the same type of value that was inserted. 
+
+The value can be a python file object, class, struct or something provinding the same function. There can be any amount of supporting class methods to construct the value before it is given to insert, such as "value = HashTableValue(f); value.serialize(); insert('file.txt', value)"
+
+
 
 Report (20 points)
 ------------------
 
-+ 10 points - Examples: Must contain JSON examples for a request, repsonse, and failure, for each of the insert, lookup, remove, size and query operations.
++ 10 points - Examples: Must contain JSON or other format examples for a request, repsonse, and failure, for each of the insert, lookup, remove, size and query operations.
 
 + 5 points - Performance: Here is the observed performance on my solution, between student10 and student11:
 
@@ -52,13 +58,16 @@ lookup:  xput 5128.928041243669 ops/s, latency 0.00019497251510620117s
 query:   xput 158.56314249521435 ops/s, latency 0.006306635856628418s
 remove:  xput 5196.758765952174 ops/s, latency 0.0001924276351928711s
 
-Give credit if the observed performance of lookup and remove are approx 4000-6000 operations per second.  Lookup is likely about half the performance.
+Throughput will likely vary quite a bit with different implementations and file sizes being transmitted. Insert and lookup
+measurements may include disk I/O. I think any reasonable throughput is acceptable. 
 
-If they are much slower, this is likely because of excessive output at the client or server.  If they are much faster... that's hard to explain.  That might occur if the client and server are running on the same machine, which isn't what the instructions called for.
+Exceptionally slow results, or cases where there is a large discrepancy between insert and lookup should be scrutinized. 
+Exceptionally fast results may have been run with two local processes which is not what the assignment specified.
 
-The performance of query should be substantially lower, but will depend on the number of items in the hash table and also the exact method used to represent the result.
+Query, size, and remove should be quite uniform and a good deal faster than insert and lookup. 
 
-+ 5 points Significance: A good discussion of the significance should observe that the time to insert/lookup/remove/query is much higher than the code of a trivial function call (or dictionary operation) b/c of the necessity of a network round trip.
++ 5 points Significance: A good discussion of the significance should observe that the time to insert/lookup/remove/query is 
+much higher than the code of a trivial function call (or dictionary operation) b/c of the necessity of a network round trip.
 
 Finally, create a file called `GRADE` alongside the student's code that
 gives the overall grade breakdown, and specific comments and deductions

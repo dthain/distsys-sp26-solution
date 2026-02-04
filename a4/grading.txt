@@ -8,7 +8,7 @@ Test the basic operation of the system works by having two windows open.
 In the first window, ssh to `student10.cse.nd.edu` and run the server:
 
 ```
-python SpreadSheetServer.py 0
+python HashTableServer.py 0
 (port number should be printed out)
 ```
 

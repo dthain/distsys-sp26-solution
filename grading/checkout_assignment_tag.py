@@ -78,7 +78,7 @@ for deviant in non_conformers.copy():
     if len(possible_tags)>1:
         print(f"Multiple matches for assignment {assignment_number} in {tags}")
         print("Enter the list index of the desired tag: Type a non-integer to skip")
-        response = input()
+        response = input().strip()
         if response.isdigit():
             tag_index = int(response)
         else:
