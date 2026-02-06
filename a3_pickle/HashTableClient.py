@@ -57,8 +57,7 @@ class HashTableClient:
     # For each of the request types, create a request object,
     # and then invoke the common dorpc method.
 
-    def insert( self, key ):
-        ht_file = HashTableFile(key).from_disk()
+    def insert( self, key , ht_file: HashTableFile):
         ht_message = HTMessage("INSERT", HTMessageBody(filename=key, file=ht_file))
         return self.dorpc(ht_message)
 
@@ -67,9 +66,10 @@ class HashTableClient:
         result = self.dorpc(ht_message)
 
         if result:
+            if result.body.status == "KEYERROR":
+                raise KeyError
             ht_file = result.body.file
-            ht_file.to_disk(key)
-            return key
+            return ht_file
 
     def remove( self, key ):
         ht_message = HTMessage("REMOVE", HTMessageBody(filename=key))
